@@ -1,10 +1,14 @@
 package main
 
 import (
+	"github.com/CBYeuler/atlas-workspace/backend/internal/config"
+	"github.com/CBYeuler/atlas-workspace/backend/internal/database"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
+	config.LoadConfig()
+	database.Connect()
 	r := gin.Default()
 
 	// Health Check
