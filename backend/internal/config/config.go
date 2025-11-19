@@ -7,14 +7,16 @@ import (
 )
 
 type Config struct {
-	AppPort          string
-	DBHost           string
-	DBPort           string
-	DBUser           string
-	DBPassword       string
-	DBName           string
-	JWTAccessSecret  string
-	JWTRefreshSecret string
+	AppPort           string
+	DBHost            string
+	DBPort            string
+	DBUser            string
+	DBPassword        string
+	DBName            string
+	JWTAccessSecret   string
+	JWTRefreshSecret  string
+	JWTAccessExpires  string
+	JWTRefreshExpires string
 }
 
 var C Config
@@ -26,13 +28,16 @@ func LoadConfig() {
 		log.Fatalf("Error loading .env file: %v", err)
 	}
 	C = Config{
-		AppPort:          viper.GetString("APP_PORT"),
-		DBHost:           viper.GetString("DB_HOST"),
-		DBPort:           viper.GetString("DB_PORT"),
-		DBUser:           viper.GetString("DB_USER"),
-		DBPassword:       viper.GetString("DB_PASSWORD"),
-		DBName:           viper.GetString("DB_NAME"),
-		JWTAccessSecret:  viper.GetString("JWT_ACCESS_SECRET"),
-		JWTRefreshSecret: viper.GetString("JWT_REFRESH_SECRET"),
+		AppPort:           viper.GetString("APP_PORT"),
+		DBHost:            viper.GetString("DB_HOST"),
+		DBPort:            viper.GetString("DB_PORT"),
+		DBUser:            viper.GetString("DB_USER"),
+		DBPassword:        viper.GetString("DB_PASSWORD"),
+		DBName:            viper.GetString("DB_NAME"),
+		JWTAccessSecret:   viper.GetString("JWT_ACCESS_SECRET"),
+		JWTRefreshSecret:  viper.GetString("JWT_REFRESH_SECRET"),
+		JWTAccessExpires:  viper.GetString("JWT_ACCESS_EXPIRES"),
+		JWTRefreshExpires: viper.GetString("JWT_REFRESH_EXPIRES"),
 	}
+
 }
